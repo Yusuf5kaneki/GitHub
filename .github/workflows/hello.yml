@@ -1,0 +1,12 @@
+#workflow
+name: hello
+on: workflow_dispatch
+#jobs
+jobs:
+  hello_world:
+    runs-on: ubuntu-latest
+#steps
+    steps:
+    - name: hello world git
+      run: echo "hello git world"
+#action

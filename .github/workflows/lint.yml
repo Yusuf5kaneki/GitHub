@@ -1,0 +1,28 @@
+name: codecheck
+on: push
+
+jobs:
+  container:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout current repo
+      uses: actions/checkout@v7
+  config:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+            python-version: '3.13' 
+      - run: python my_script.py
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: install ruff
+      run: pip install ruff
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+    - name: check_code_quality
+      run: ruff check .
+    
